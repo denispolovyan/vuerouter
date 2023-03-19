@@ -1,8 +1,5 @@
 <template>
   <div id="app">
-    <h1>Main page</h1>
-    <!-- <router-link to="/one">go to one</router-link> -->
-    <router-link to="/one">start carouser</router-link>
     <router-view></router-view>
   </div>
 </template>
@@ -10,7 +7,18 @@
 <script>
 export default {
   name: "app",
+
+  methods: {
+    goToDashboard() {
+      this.$router.push("/two");
+    },
+  },
 };
 </script>
 
-<style></style>
+<style >
+@import url('./assets/css/nullstyle');
+#app{
+	height: 100%;
+}
+</style>
