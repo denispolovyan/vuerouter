@@ -1,6 +1,6 @@
 <template>
   <div class="films-carousel">
-    <div class="films__carousel__body">
+    <div class="films-carousel__body">
       <div class="films__container">
         <div
           class="film"
@@ -14,7 +14,10 @@
                 {{ film.name }}
               </div>
               <img :src="film.img" />
-              <router-link :to="'/films/' + film.id" class="image__background">
+              <router-link
+                :to="{ name: 'film', params: { id: film.id } }"
+                class="image__background"
+              >
               </router-link>
             </div>
           </div>
@@ -31,7 +34,7 @@ export default {
   data: () => {
     return {
       selectedFilm: null,
-		registrated: false,
+      registrated: false,
     };
   },
   methods: {
@@ -55,7 +58,7 @@ export default {
   margin-bottom: 20px;
 }
 .image__name {
-	z-index: 50;
+  z-index: 50;
   position: absolute;
   font-size: 20px;
   color: #fff;

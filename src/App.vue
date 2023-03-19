@@ -7,12 +7,6 @@
 <script>
 export default {
   name: "app",
-
-  methods: {
-    goToDashboard() {
-      this.$router.push("/two");
-    },
-  },
 };
 </script>
 
