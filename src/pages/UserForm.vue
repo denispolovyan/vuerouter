@@ -180,23 +180,28 @@ export default {
       form: {
         name: {
           nameMinLength: minLength(2),
+          required,
         },
         phone: {
           phoneMinLength: minLength(2),
           phoneValidator(value) {
             return !isNaN(value);
           },
+          required,
         },
         email: {
           emailMinLength: minLength(8),
           emaillValidation: email,
+          required,
         },
         password: {
           passwordMinLength: minLength(8),
+          required,
         },
         passwordConfirmation: {
           passwordMinLength: minLength(8),
           passwordConfirmationConfirm: sameAs(this.form.password),
+          required,
         },
         sex: { required },
         checkbox: {
@@ -204,6 +209,7 @@ export default {
             return value == true;
           },
         },
+        required,
       },
     };
   },
