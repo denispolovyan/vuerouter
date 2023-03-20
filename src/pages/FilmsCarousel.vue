@@ -100,6 +100,7 @@ export default {
 }
 .image img {
   max-width: 100%;
+  height: 100%;
 }
 .image__background {
   background: none;

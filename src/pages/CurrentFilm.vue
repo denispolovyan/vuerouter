@@ -3,7 +3,10 @@
     <div class="current-film__body" v-if="film">
       <div class="current-film__name">{{ film.name }}</div>
       <img class="current-film__image" :src="film.img" />
-      <div class="current-film__plot"><p>Plot:</p><br />{{ film.description }}</div>
+      <div class="current-film__plot">
+        <p>Plot:</p>
+        <br />{{ film.description }}
+      </div>
     </div>
   </div>
 </template>
@@ -31,15 +34,16 @@ export default {
 
 .current-film {
   font-family: "Josefin Sans", sans-serif;
-  max-width: 750px;
+  max-width: 780px;
+  padding: 0px 15px;
   margin: 40px auto;
   text-align: center;
   margin-bottom: 20px;
 }
 .current-film__body {
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 .current-film__name {
   text-align: left;
@@ -47,7 +51,8 @@ export default {
 }
 .current-film__image {
   position: relative;
-  max-width: 750px;
+  max-width: 100%;
+  height: 100%;
   margin: 0px auto;
 }
 .current-film__plot {
@@ -55,8 +60,13 @@ export default {
   font-size: 16px;
   margin-bottom: 40px;
 }
-.current-film__plot p{
+.current-film__plot p {
   text-decoration: underline;
   margin-bottom: -6px;
+}
+@media (max-width: 600px) {
+  .current-film {
+    margin: 20px auto;
+  }
 }
 </style>

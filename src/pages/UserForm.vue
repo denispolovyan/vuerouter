@@ -229,7 +229,7 @@ export default {
 
 .form {
   margin: 40px auto;
-  max-width: 220px;
+  max-width: 230px;
 }
 .form__content {
   display: flex;
@@ -247,6 +247,7 @@ export default {
   display: block;
   background-color: #e2e2e2;
   height: 20px;
+  width: 190px;
   padding: 0px 5px;
 }
 .passwords {
@@ -262,10 +263,9 @@ export default {
 .form__select {
   background-color: #e2e2e2;
 }
-.form__body_checkbox {
-  display: flex;
-  gap: 10px;
-  align-items: center;
+.form__body_checkbox input {
+  width: 20px;
+  margin-bottom: 5px;
 }
 .form__buttons {
   display: flex;
