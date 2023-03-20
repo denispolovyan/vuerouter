@@ -23,6 +23,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500;600;700&display=swap");
 
 .no-registration {
+  padding: 0px 15px;
+  text-align: center;
   font-family: "Josefin Sans", sans-serif;
   height: 100%;
   background-color: #000;

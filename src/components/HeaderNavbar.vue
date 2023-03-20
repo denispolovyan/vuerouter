@@ -2,7 +2,7 @@
   <div class="header-navbar">
     <div class="header-navbar__container">
       <div class="header-navbar__logo" @click="setFilmsPage">
-        <p>vuerouter</p>
+        vuerouter
       </div>
       <div class="header-navbar__navbar">
         <div class="header-navbar__item" @click="switchToAuthState">
@@ -59,21 +59,20 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500;600;700&display=swap");
 
 .header-navbar {
+	width: 100%;
   font-family: "Josefin Sans", sans-serif;
   background-color: #ffd347;
 }
 .header-navbar__container {
+  padding: 0px 15px;
   height: 60px;
-  max-width: 750px;
+  max-width: 780px;
   margin: 0px auto;
   align-items: center;
   display: flex;
-}
-.header-navbar__logo {
-  flex: 1 1 200px;
+  justify-content: space-between;
 }
 .header-navbar__logo p {
-  width: 65px;
   cursor: pointer;
 }
 .header-navbar__navbar {

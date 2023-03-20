@@ -78,7 +78,7 @@ export default {
 
 .payment-form__body {
   font-family: "Josefin Sans", sans-serif;
-
+  padding: 0px 15px;
   margin: 40px 0px;
 }
 .card {
@@ -151,5 +151,10 @@ p {
 ::placeholder {
   font-size: 14px;
   font-weight: 600;
+}
+@media (max-width: 600px) {
+  .payment-form__body {
+    margin: 20px 0px;
+  }
 }
 </style>

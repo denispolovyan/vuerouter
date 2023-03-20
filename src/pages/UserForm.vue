@@ -63,7 +63,7 @@
                 type="password"
               />
               <div class="errorMsg" v-if="v$.form.password.$error">
-                Password has an error.
+                Min length is 8 symbols.
               </div>
             </div>
             <div class="form__body_password">
@@ -146,7 +146,6 @@ export default {
       showFormError: false,
       form: {
         name: "",
-        age: "",
         email: "",
         phone: "",
         password: "",
@@ -246,7 +245,7 @@ export default {
 }
 .form__body input {
   display: block;
-  background-color: #e9f1f6;
+  background-color: #e2e2e2;
   height: 20px;
   padding: 0px 5px;
 }
@@ -261,7 +260,7 @@ export default {
 }
 
 .form__select {
-  background-color: #e9f1f6;
+  background-color: #e2e2e2;
 }
 .form__body_checkbox {
   display: flex;
@@ -273,21 +272,19 @@ export default {
   gap: 30px;
 }
 .form__button {
-  padding: 3px 7px;
-  border-radius: 5px;
+  padding: 10px;
+  border: 1px solid #000;
+  background-color: #fff;
 }
-.form__button_submit {
-  background-color: #9aea76;
-}
-.form__button_reset {
-  background-color: #ffb756;
-}
-.form__button_submit:hover {
+.form__button:hover {
   transition-duration: 0.5s;
-  background-color: green;
+  background-color: #000;
+  color: #fff;
 }
-.form__button_reset:hover {
-  transition-duration: 0.5s;
-  background-color: red;
+
+@media (max-width: 600px) {
+  .form {
+    margin: 20px auto;
+  }
 }
 </style>

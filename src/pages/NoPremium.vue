@@ -7,12 +7,10 @@
       </div>
       <div class="no-registation__buttons">
         <router-link to="/films"
-          ><button class="no-premium__button">
-            To films
-          </button></router-link
+          ><button class="no-premium__button">To films</button></router-link
         >
         <router-link to="/user/premium"
-          ><button class="no-premium__button">Buy premium</button></router-link
+          ><button class="no-premium__button">Premium</button></router-link
         >
       </div>
     </div>
@@ -23,6 +21,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500;600;700&display=swap");
 
 .no-premium {
+  padding: 0px 15px;
+  text-align: center;
   font-family: "Josefin Sans", sans-serif;
   height: 100%;
   background-color: #000;

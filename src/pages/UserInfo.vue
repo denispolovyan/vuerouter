@@ -15,7 +15,7 @@
         <div class="user-info__email">{{ userInfo.email }}</div>
       </div>
       <div class="user-info__row" v-if="!premiumState">
-			<p style="margin-bottom: 10px">Status: no premium</p>
+        <p style="margin-bottom: 10px">Status: no premium</p>
         <button
           class="user-info__premium user-info__button"
           @click.prevent="switchToPremiumPaymentForm"
@@ -23,7 +23,7 @@
           buy premium
         </button>
       </div>
-        <p style="margin-bottom: 0px" v-else>Status: premium</p>
+      <p style="margin-bottom: 0px" v-else>Status: premium</p>
 
       <div class="user-info__row">
         <button
@@ -108,5 +108,10 @@ export default {
   transition-duration: 0.5s;
   background-color: #000;
   color: #fff;
+}
+@media (max-width: 600px) {
+  .user-info {
+    margin: 20px auto;
+  }
 }
 </style>

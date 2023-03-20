@@ -70,12 +70,19 @@ export default {
 
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500;600;700&display=swap");
+.films-carousel__body {
+  margin: 40px auto;
+}
 .film {
   font-family: "Josefin Sans", sans-serif;
-  max-width: 750px;
-  margin: 40px auto;
+  max-width: 780px;
+  padding: 0px 15px;
+  margin: 0px auto;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 auto;
 }
 .image__name {
   z-index: 50;
@@ -85,13 +92,14 @@ export default {
   background: #000;
   padding: 10px;
 }
+
 .image {
   position: relative;
   max-width: 750px;
   margin: 0px auto;
 }
 .image img {
-  max-width: 750px;
+  max-width: 100%;
 }
 .image__background {
   background: none;
@@ -110,8 +118,12 @@ export default {
   right: 0;
 }
 .image__premium {
-  /* padding-bottom: -5px; */
   height: 20px;
   width: 20px;
+}
+@media (max-width: 600px) {
+  .films-carousel__body {
+    margin: 20px auto;
+  }
 }
 </style>
