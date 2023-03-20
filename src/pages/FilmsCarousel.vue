@@ -12,13 +12,18 @@
             <div class="image">
               <div class="image__name">
                 {{ film.name }}
+                <img
+                  class="image__premium"
+                  v-if="film.premium"
+                  src="https://cdn-icons-png.flaticon.com/512/6016/6016804.png"
+                  alt="premium"
+                />
               </div>
               <img :src="film.img" />
-              <router-link
-                :to="{ name: 'film', params: { id: film.id } }"
+              <div
                 class="image__background"
-              >
-              </router-link>
+                @click="switchToCurrentFilm(film)"
+              ></div>
             </div>
           </div>
         </div>
@@ -40,6 +45,21 @@ export default {
   methods: {
     selectFilm(film) {
       this.selectedFilm = film;
+    },
+    switchToCurrentFilm(currentFilm) {
+      let userInfo = localStorage.getItem("user-info");
+      if (userInfo) {
+        userInfo = JSON.parse(userInfo);
+        if (!currentFilm.premium) {
+          this.$router.push(`/films/${currentFilm.id}`);
+        } else {
+          userInfo.premium
+            ? this.$router.push(`/films/${currentFilm.id}`)
+            : this.$router.push("/no-premium");
+        }
+      } else {
+        this.$router.push("/no-registration");
+      }
     },
   },
   created() {
@@ -88,5 +108,10 @@ export default {
   left: 0;
   bottom: 0;
   right: 0;
+}
+.image__premium {
+  /* padding-bottom: -5px; */
+  height: 20px;
+  width: 20px;
 }
 </style>

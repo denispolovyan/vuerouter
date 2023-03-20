@@ -230,13 +230,15 @@ export default {
 
 .form {
   margin: 40px auto;
-  max-width: 180px;
+  max-width: 220px;
 }
 .form__content {
   display: flex;
   gap: 10px;
   flex-direction: column;
   justify-content: center;
+  border: 1px solid #000;
+  padding: 20px;
 }
 .form__body {
   display: block;
