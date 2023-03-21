@@ -1,15 +1,20 @@
-import { createStore } from 'vuex'
+import { createStore } from "vuex";
 
 export default createStore({
-  state () {
+  state() {
     return {
-      count: 0
-    }
+      whiteTheme: true,
+    };
+  },
+  getters: {
+    getColorTheme(state) {
+      return state.whiteTheme;
+    },
   },
   mutations: {
-    increment (state) {
-      state.count++
-    }
-  }
-})
-
+    changeColorTheme(state) {
+      state.whiteTheme = !state.whiteTheme;
+    },
+  },
+  actions: {},
+});

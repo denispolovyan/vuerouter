@@ -1,10 +1,26 @@
 <template>
-  <div class="header-navbar">
+  <div
+    class="header-navbar"
+    :class="{
+      blackTheme: !$store.getters.getColorTheme,
+    }"
+  >
     <div class="header-navbar__container">
-      <div class="header-navbar__logo" @click="setFilmsPage">
-        vuerouter
-      </div>
+      <div class="header-navbar__logo" @click="setFilmsPage">vuerouter</div>
       <div class="header-navbar__navbar">
+        <div
+          class="header-navbar__item"
+          @click="$store.commit('changeColorTheme')"
+        >
+          <div class="form-check form-switch">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              role="switch"
+              id="flexSwitchCheckDefault"
+            />
+          </div>
+        </div>
         <div class="header-navbar__item" @click="switchToAuthState">
           <div class="header-navbar__auth">
             {{ signedIn ? "watch profile" : "sign in" }}
@@ -59,7 +75,7 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500;600;700&display=swap");
 
 .header-navbar {
-	width: 100%;
+  width: 100%;
   font-family: "Josefin Sans", sans-serif;
   background-color: #ffd347;
 }
@@ -72,7 +88,7 @@ export default {
   display: flex;
   justify-content: space-between;
 }
-.header-navbar__logo{
+.header-navbar__logo {
   cursor: pointer;
 }
 .header-navbar__navbar {
@@ -81,5 +97,13 @@ export default {
 }
 .header-navbar__item {
   cursor: pointer;
+  display: flex;
+  align-self: center;
+}
+
+/* black__theme */
+.blackTheme {
+  background-color: #8c8377;
+  color: #fff;
 }
 </style>

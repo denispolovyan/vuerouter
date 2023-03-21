@@ -115,6 +115,9 @@
           <div class="form__buttons">
             <button
               class="form__button form__button_submit"
+              :class="{
+                blackTheme: !$store.getters.getColorTheme,
+              }"
               @click.prevent.stop="submitForm"
             >
               Submit
@@ -122,6 +125,9 @@
             <button
               @click.prevent="resetForm"
               class="form__button form__button_reset"
+              :class="{
+                blackTheme: !$store.getters.getColorTheme,
+              }"
             >
               Reset
             </button>
@@ -245,10 +251,11 @@ export default {
 }
 .form__body input {
   display: block;
-  background-color: #e2e2e2;
+  background-color: #f6f6f3;
   height: 20px;
   width: 190px;
   padding: 0px 5px;
+  border: 1px solid #79787e;
 }
 .passwords {
   gap: 10px;
@@ -261,7 +268,8 @@ export default {
 }
 
 .form__select {
-  background-color: #e2e2e2;
+  background-color: #f6f6f3;
+  border: 1px solid #79787e;
 }
 .form__body_checkbox input {
   width: 20px;
@@ -286,5 +294,9 @@ export default {
   .form {
     margin: 20px auto;
   }
+}
+/* black__theme */
+.blackTheme {
+  background-color: #f6f6f3;
 }
 </style>

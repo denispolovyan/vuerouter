@@ -17,6 +17,9 @@
       <div class="user-info__row" v-if="!premiumState">
         <p style="margin-bottom: 10px">Status: no premium</p>
         <button
+          :class="{
+            blackTheme: !$store.getters.getColorTheme,
+          }"
           class="user-info__premium user-info__button"
           @click.prevent="switchToPremiumPaymentForm"
         >
@@ -28,6 +31,9 @@
       <div class="user-info__row">
         <button
           class="user-info-delete user-info__button"
+          :class="{
+            blackTheme: !$store.getters.getColorTheme,
+          }"
           @click.prevent="deleteUser"
         >
           sign out
@@ -69,7 +75,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped style="scss">
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500;600;700&display=swap");
 
 .user-info {
@@ -113,5 +119,9 @@ export default {
   .user-info {
     margin: 20px auto;
   }
+}
+/* black theme */
+.blackTheme {
+  background-color: #f6f6f3;
 }
 </style>

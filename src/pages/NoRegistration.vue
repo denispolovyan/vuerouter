@@ -26,7 +26,7 @@
   padding: 0px 15px;
   text-align: center;
   font-family: "Josefin Sans", sans-serif;
-  height: 100%;
+  height: 100vh;
   background-color: #000;
   color: #fff;
   font-size: 24px;

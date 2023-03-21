@@ -1,5 +1,10 @@
 <template>
-  <div class="films-carousel">
+  <div
+    class="films-carousel"
+    :class="{
+      blackTheme: !$store.getters.getColorTheme,
+    }"
+  >
     <div class="films-carousel__body">
       <div class="films__container">
         <div
@@ -64,15 +69,16 @@ export default {
   },
   created() {
     this.films = films;
-    console.log(this.$store.state.count);
   },
 };
 </script>
 
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500;600;700&display=swap");
+
 .films-carousel__body {
-  margin: 40px auto;
+  padding: 40px 0px;
+  margin: 0px auto;
 }
 .film {
   font-family: "Josefin Sans", sans-serif;
@@ -126,5 +132,10 @@ export default {
   .films-carousel__body {
     margin: 20px auto;
   }
+}
+
+/* black__theme */
+.blackTheme {
+  background-color: #e2e2e2;
 }
 </style>

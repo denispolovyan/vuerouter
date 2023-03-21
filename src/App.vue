@@ -1,5 +1,10 @@
 <template>
-  <div id="app">
+  <div
+    id="app"
+    :class="{
+      blackTheme: !$store.getters.getColorTheme,
+    }"
+  >
     <router-view></router-view>
   </div>
 </template>
@@ -10,9 +15,13 @@ export default {
 };
 </script>
 
-<style >
-@import url('./assets/css/nullstyle');
-#app{
-	height: 100%;
+<style>
+@import url("./assets/css/nullstyle");
+#app {
+  min-height: 100vh;
+}
+/* black__theme */
+.blackTheme {
+  background-color: #e2e2e2;
 }
 </style>

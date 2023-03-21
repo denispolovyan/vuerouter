@@ -2,13 +2,21 @@
   <div class="payment-form">
     <div class="payment-form__body">
       <div class="container p-0">
-        <div class="card px-4">
+        <div
+          class="card px-4"
+          :class="{
+            blackThemeCard: !$store.getters.getColorTheme,
+          }"
+        >
           <p class="h8 py-3">Payment Details</p>
           <div class="row gx-3">
             <div class="col-12">
               <div class="d-flex flex-column">
                 <p class="text mb-1">Person Name</p>
                 <input
+                  :class="{
+                    blackThemeInput: !$store.getters.getColorTheme,
+                  }"
                   style="color: #000"
                   class="form-control mb-3"
                   type="text"
@@ -21,6 +29,9 @@
               <div class="d-flex flex-column">
                 <p class="text mb-1">Card Number</p>
                 <input
+                  :class="{
+                    blackThemeInput: !$store.getters.getColorTheme,
+                  }"
                   class="form-control mb-3"
                   type="text"
                   placeholder="1234 5678 435678"
@@ -31,6 +42,9 @@
               <div class="d-flex flex-column">
                 <p class="text mb-1">Expiry</p>
                 <input
+                  :class="{
+                    blackThemeInput: !$store.getters.getColorTheme,
+                  }"
                   class="form-control mb-3"
                   type="text"
                   placeholder="MM/YYYY"
@@ -41,6 +55,9 @@
               <div class="d-flex flex-column">
                 <p class="text mb-1">CVV/CVC</p>
                 <input
+                  :class="{
+                    blackThemeInput: !$store.getters.getColorTheme,
+                  }"
                   class="form-control mb-3 pt-2"
                   type="password"
                   placeholder="***"
@@ -48,7 +65,12 @@
               </div>
             </div>
             <div class="col-12" @click="setPremiumState">
-              <div class="btn btn-primary mb-3">
+              <div
+                class="btn btn-primary mb-3"
+                :class="{
+                  blackThemeInput: !$store.getters.getColorTheme,
+                }"
+              >
                 <span style="color: #000" class="ps-3">Pay $9</span>
                 <span class="fas fa-arrow-right"></span>
               </div>
@@ -73,7 +95,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500;600;700&display=swap");
 
 .payment-form__body {
@@ -156,5 +178,15 @@ p {
   .payment-form__body {
     margin: 20px 0px;
   }
+}
+
+/* black__theme */
+.blackThemeCard {
+  background-color: #e0e0cd;
+}
+.blackThemeInput {
+  background-color: #f6f6f3;
+  transition: 0s !important;
+  background-image: none !important;
 }
 </style>
