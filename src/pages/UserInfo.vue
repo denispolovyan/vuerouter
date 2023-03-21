@@ -59,6 +59,7 @@ export default {
       if (confirmationResult) {
         localStorage.removeItem("user-info");
         this.$router.push("/films");
+        this.$store.commit("changeAccountState");
       }
     },
     switchToPremiumPaymentForm() {

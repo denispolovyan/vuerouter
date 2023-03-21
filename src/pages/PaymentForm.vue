@@ -90,6 +90,7 @@ export default {
       userInfo["premium"] = true;
       localStorage.setItem("user-info", JSON.stringify(userInfo));
       this.$router.push("/user");
+		this.$store.commit('changeAccountState');
     },
   },
 };

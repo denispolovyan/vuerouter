@@ -17,7 +17,7 @@
   font-family: "Josefin Sans", sans-serif;
 
   background-color: #000;
-  height: 100%;
+  height: 100vh;
   width: 100%;
 }
 .main-page__body {
