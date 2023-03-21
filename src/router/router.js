@@ -1,14 +1,14 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 
-import MainPage from "./pages/MainPage.vue";
-import FilmsCarousel from "./pages/FilmsCarousel.vue";
-import FilmsLayout from "./pages/FilmsLayout.vue";
-import CurrentFilm from "./pages/CurrentFilm.vue";
-import UserForm from "./pages/UserForm.vue";
-import UserInfo from "./pages/UserInfo.vue";
-import PaymentForm from "./pages/PaymentForm.vue";
-import NoRegistration from "./pages/NoRegistration.vue";
-import NoPremium from "./pages/NoPremium.vue";
+import MainPage from "../pages/MainPage.vue";
+import FilmsCarousel from "../pages/FilmsCarousel.vue";
+import FilmsLayout from "../pages/FilmsLayout.vue";
+import CurrentFilm from "../pages/CurrentFilm.vue";
+import UserForm from "../pages/UserForm.vue";
+import UserInfo from "../pages/UserInfo.vue";
+import PaymentForm from "../pages/PaymentForm.vue";
+import NoRegistration from "../pages/NoRegistration.vue";
+import NoPremium from "../pages/NoPremium.vue";
 
 export default createRouter({
   history: createWebHashHistory(),

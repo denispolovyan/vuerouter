@@ -52,7 +52,6 @@ export default {
 .current-film__image {
   position: relative;
   max-width: 100%;
-  height: 100%;
   margin: 0px auto;
 }
 .current-film__plot {

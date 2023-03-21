@@ -64,6 +64,7 @@ export default {
   },
   created() {
     this.films = films;
+    console.log(this.$store.state.count);
   },
 };
 </script>
@@ -100,7 +101,6 @@ export default {
 }
 .image img {
   max-width: 100%;
-  height: 100%;
 }
 .image__background {
   background: none;

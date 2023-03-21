@@ -72,7 +72,7 @@ export default {
   display: flex;
   justify-content: space-between;
 }
-.header-navbar__logo p {
+.header-navbar__logo{
   cursor: pointer;
 }
 .header-navbar__navbar {
