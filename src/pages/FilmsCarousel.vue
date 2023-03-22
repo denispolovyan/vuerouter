@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import { films } from "@/api";
+import { films } from "@/data/films";
 
 export default {
   data: () => {

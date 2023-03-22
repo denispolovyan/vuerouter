@@ -37,6 +37,8 @@
 </template>
 
 <script>
+import { reactions } from "@/data/reactions";
+
 export default {
   data: () => {
     return {
@@ -88,10 +90,9 @@ export default {
 
     if (signedIn) {
       signedIn = JSON.parse(signedIn);
-
       this.signedIn = true;
 
-		// check if premium exists 
+      // check if premium exists
       if (signedIn.premium === false || signedIn.premium === true) {
         signedIn.premium != this.$store.getters.getAccountState
           ? this.$store.commit("changeAccountState")
@@ -100,12 +101,22 @@ export default {
 
       // check if user has wrong data
       for (let field in signedIn) {
-        if (signedIn[field] == false) {
+        if (signedIn[field] == false || field == false) {
           localStorage.removeItem("user-info");
           this.signedIn = false;
           this.$router.push("/films");
-          return;
         }
+      }
+
+      // load reactions
+      this.$store.commit("setReactions", reactions);
+
+      // load films review
+      const filmsReview = localStorage.getItem("films-review");
+      if (filmsReview) {
+        JSON.parse(filmsReview).forEach((review) => {
+          this.$store.commit("setReviewOnFilms", review);
+        });
       }
     }
   },

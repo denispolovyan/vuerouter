@@ -64,7 +64,10 @@
                 />
               </div>
             </div>
-            <div class="col-12" @click="setPremiumState">
+            <div
+              class="col-12"
+              @click="setPremiumState"
+            >
               <div
                 class="btn btn-primary mb-3"
                 :class="{
@@ -90,7 +93,7 @@ export default {
       userInfo["premium"] = true;
       localStorage.setItem("user-info", JSON.stringify(userInfo));
       this.$router.push("/user");
-		this.$store.commit('changeAccountState');
+      this.$store.commit("changeAccountState");
     },
   },
 };
@@ -189,5 +192,11 @@ p {
   background-color: #f6f6f3;
   transition: 0s !important;
   background-image: none !important;
+}
+.blackThemeInput:hover {
+  background-color: #f6f6f3;
+  transition: 0.5s !important;
+  background-image: none !important;
+  border: 1px solid #000;
 }
 </style>

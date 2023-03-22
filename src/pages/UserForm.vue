@@ -7,11 +7,19 @@
           errorForm: showFormError,
         }"
       >
-        <div class="form__content">
+        <div
+          class="form__content"
+          :class="{
+            blackThemeForm: !$store.getters.getColorTheme,
+          }"
+        >
           <!-- name  -->
           <div class="form__body">
             <label class="form__name form__label">Name</label>
             <input
+              :class="{
+                blackThemeButton: !$store.getters.getColorTheme,
+              }"
               @click="resetErrors()"
               @blur="v$.form.name.$touch"
               @focus="v$.form.name.$reset"
@@ -27,6 +35,9 @@
           <div class="form__body">
             <label class="form__phone form__label">Phone</label>
             <input
+              :class="{
+                blackThemeButton: !$store.getters.getColorTheme,
+              }"
               @click="resetErrors()"
               @blur="v$.form.phone.$touch"
               @focus="v$.form.phone.$reset"
@@ -42,6 +53,9 @@
           <div class="form__body">
             <label class="form__email form__label">Email address</label>
             <input
+              :class="{
+                blackThemeButton: !$store.getters.getColorTheme,
+              }"
               @click="resetErrors()"
               @blur="v$.form.email.$touch"
               @focus="v$.form.email.$reset"
@@ -57,6 +71,9 @@
             <div class="form__body_password">
               <label class="form__password form__label">Password</label>
               <input
+                :class="{
+                  blackThemeButton: !$store.getters.getColorTheme,
+                }"
                 @click="resetErrors()"
                 @blur="v$.form.password.$touch"
                 @focus="v$.form.password.$reset"
@@ -74,6 +91,9 @@
                 >Confirm the password</label
               >
               <input
+                :class="{
+                  blackThemeButton: !$store.getters.getColorTheme,
+                }"
                 @click="resetErrors()"
                 @blur.stop="v$.form.passwordConfirmation.$touch"
                 @focus.stop="v$.form.passwordConfirmation.$reset"
@@ -91,6 +111,9 @@
           <div class="form__body">
             <label class="form__sex form__label">Sex</label>
             <select
+              :class="{
+                blackThemeButton: !$store.getters.getColorTheme,
+              }"
               @click="resetErrors()"
               @focus="v$.form.sex.$touch"
               @blur="v$.form.sex.$reset"
@@ -108,6 +131,9 @@
           <!-- checkbox  -->
           <div class="form__body form__body_checkbox">
             <input
+              :class="{
+                blackThemeButton: !$store.getters.getColorTheme,
+              }"
               @click="resetErrors()"
               autocomplete="off"
               type="checkbox"
@@ -126,7 +152,7 @@
             <button
               class="form__button form__button_submit"
               :class="{
-                blackTheme: !$store.getters.getColorTheme,
+                blackThemeButton: !$store.getters.getColorTheme,
               }"
               @click.prevent.stop="submitForm"
             >
@@ -136,7 +162,7 @@
               @click.prevent="resetForm"
               class="form__button form__button_reset"
               :class="{
-                blackTheme: !$store.getters.getColorTheme,
+                blackThemeButton: !$store.getters.getColorTheme,
               }"
             >
               Reset
@@ -245,9 +271,6 @@ export default {
 .errorMsgCheckbox {
   color: red;
 }
-.errorForm {
-  border: 1px solid red;
-}
 
 .form {
   margin: 40px auto;
@@ -267,7 +290,6 @@ export default {
 }
 .form__body input {
   display: block;
-  background-color: #f6f6f3;
   height: 20px;
   width: 190px;
   padding: 0px 5px;
@@ -284,8 +306,7 @@ export default {
 }
 
 .form__select {
-  background-color: #f6f6f3;
-  border: 1px solid #79787e;
+  border: 1px solid #000;
 }
 .form__body_checkbox input {
   width: 20px;
@@ -312,7 +333,19 @@ export default {
   }
 }
 /* black__theme */
-.blackTheme {
+.blackThemeForm {
+  background-color: #e0e0cd;
+  color: #000;
+}
+.blackThemeButton {
+  border: 1px solid #d0d0c4;
   background-color: #f6f6f3;
+  color: #000;
+}
+.blackThemeButton:hover {
+	transition-duration: 0.5s;
+  border: 1px solid #000;
+  background-color: #f6f6f3;
+  color: #000;
 }
 </style>

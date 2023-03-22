@@ -1,4 +1,4 @@
-export let films = [
+export const films = [
   {
     id: 1,
     premium: true,

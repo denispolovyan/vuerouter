@@ -5,7 +5,8 @@ export default createStore({
     return {
       whiteTheme: true,
       premiumAccount: false,
-      userInfo: "",
+      reactions: [],
+      reviewOnFilms: [],
     };
   },
   getters: {
@@ -18,6 +19,12 @@ export default createStore({
     getUserInfo(state) {
       return state.userInfo;
     },
+    getReactions(state) {
+      return state.reactions;
+    },
+    getReviewOnFilms(state) {
+      return state.reviewOnFilms;
+    },
   },
   mutations: {
     changeColorTheme(state) {
@@ -25,6 +32,23 @@ export default createStore({
     },
     changeAccountState(state) {
       state.premiumAccount = !state.premiumAccount;
+    },
+    setReactions(state, reactions) {
+      state.reactions = reactions;
+    },
+    setReviewOnFilms(state, filmReview) {
+      state.reviewOnFilms = state.reviewOnFilms.filter(
+        (t) => t.name != filmReview.name
+      );
+      state.reviewOnFilms.push(filmReview);
+    },
+    deleteReviewOnFilms(state, filmReviewToDelete) {
+      state.reviewOnFilms = state.reviewOnFilms.filter(
+        (t) => t.name != filmReviewToDelete.name
+      );
+    },
+    deleteAllReviewsOnFilms(state) {
+      state.reviewOnFilms = [];
     },
   },
   actions: {},
