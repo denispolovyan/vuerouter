@@ -5,6 +5,7 @@ export default createStore({
     return {
       whiteTheme: true,
       premiumAccount: false,
+      userInfo: "",
     };
   },
   getters: {
@@ -13,6 +14,9 @@ export default createStore({
     },
     getAccountState(state) {
       return state.premiumAccount;
+    },
+    getUserInfo(state) {
+      return state.userInfo;
     },
   },
   mutations: {

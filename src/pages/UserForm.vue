@@ -6,15 +6,15 @@
         :class="{
           errorForm: showFormError,
         }"
-        @click="showFormError = false"
       >
         <div class="form__content">
           <!-- name  -->
           <div class="form__body">
             <label class="form__name form__label">Name</label>
             <input
-              @blur="v$.form.name.$reset"
-              @focus="v$.form.name.$touch"
+              @click="resetErrors()"
+              @blur="v$.form.name.$touch"
+              @focus="v$.form.name.$reset"
               maxlength="35"
               autocomplete="off"
               v-model="form.name"
@@ -27,8 +27,9 @@
           <div class="form__body">
             <label class="form__phone form__label">Phone</label>
             <input
-              @blur="v$.form.phone.$reset"
-              @focus="v$.form.phone.$touch"
+              @click="resetErrors()"
+              @blur="v$.form.phone.$touch"
+              @focus="v$.form.phone.$reset"
               maxlength="35"
               autocomplete="off"
               v-model="form.phone"
@@ -41,8 +42,9 @@
           <div class="form__body">
             <label class="form__email form__label">Email address</label>
             <input
-              @blur="v$.form.email.$reset"
-              @focus="v$.form.email.$touch"
+              @click="resetErrors()"
+              @blur="v$.form.email.$touch"
+              @focus="v$.form.email.$reset"
               autocomplete="off"
               v-model="form.email"
             />
@@ -55,8 +57,9 @@
             <div class="form__body_password">
               <label class="form__password form__label">Password</label>
               <input
-                @blur="v$.form.password.$reset"
-                @focus="v$.form.password.$touch"
+                @click="resetErrors()"
+                @blur="v$.form.password.$touch"
+                @focus="v$.form.password.$reset"
                 maxlength="20"
                 autocomplete="off"
                 v-model="form.password"
@@ -71,8 +74,9 @@
                 >Confirm the password</label
               >
               <input
-                @blur="v$.form.passwordConfirmation.$reset"
-                @focus="v$.form.passwordConfirmation.$touch"
+                @click="resetErrors()"
+                @blur.stop="v$.form.passwordConfirmation.$touch"
+                @focus.stop="v$.form.passwordConfirmation.$reset"
                 maxlength="20"
                 autocomplete="off"
                 v-model="form.passwordConfirmation"
@@ -87,6 +91,7 @@
           <div class="form__body">
             <label class="form__sex form__label">Sex</label>
             <select
+              @click="resetErrors()"
               @focus="v$.form.sex.$touch"
               @blur="v$.form.sex.$reset"
               v-model="form.sex"
@@ -102,7 +107,12 @@
           </div>
           <!-- checkbox  -->
           <div class="form__body form__body_checkbox">
-            <input autocomplete="off" type="checkbox" v-model="form.checkbox" />
+            <input
+              @click="resetErrors()"
+              autocomplete="off"
+              type="checkbox"
+              v-model="form.checkbox"
+            />
             <label
               class="form__checkbox"
               :class="{
@@ -179,6 +189,12 @@ export default {
       }
       this.form.sex = "male";
     },
+    resetErrors() {
+      this.showFormError = false;
+      for (let field in this.form) {
+        this.v$.form[field].$dirty = false;
+      }
+    },
   },
   validations() {
     return {
@@ -230,7 +246,7 @@ export default {
   color: red;
 }
 .errorForm {
-  border: 2px solid red;
+  border: 1px solid red;
 }
 
 .form {

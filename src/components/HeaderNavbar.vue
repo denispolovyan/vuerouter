@@ -70,27 +70,46 @@ export default {
     },
   },
   created() {
-    this.checked = !this.$store.getters.getColorTheme;
+    // color theme
     const whiteTheme = localStorage.getItem("white-theme");
+
     if (!whiteTheme) {
       localStorage.setItem("white-theme", JSON.stringify(true));
-      this.checked = this.$store.getters.getColorTheme;
     } else {
       if (JSON.parse(whiteTheme) != this.$store.getters.getColorTheme) {
         this.$store.commit("changeColorTheme");
         this.checked = !this.$store.getters.getColorTheme;
       }
+      this.checked = !this.$store.getters.getColorTheme;
     }
 
+    // user info
     let signedIn = localStorage.getItem("user-info");
+
     if (signedIn) {
-      this.signedIn = true;
       signedIn = JSON.parse(signedIn);
-      signedIn.premium != this.$store.getters.getAccountState
-        ? this.$store.commit("changeAccountState")
-        : null;
+
+      this.signedIn = true;
+
+		// check if premium exists 
+      if (signedIn.premium === false || signedIn.premium === true) {
+        signedIn.premium != this.$store.getters.getAccountState
+          ? this.$store.commit("changeAccountState")
+          : null;
+      }
+
+      // check if user has wrong data
+      for (let field in signedIn) {
+        if (signedIn[field] == false) {
+          localStorage.removeItem("user-info");
+          this.signedIn = false;
+          this.$router.push("/films");
+          return;
+        }
+      }
     }
   },
+
   watch: {
     "$route.path"() {
       const signedIn = localStorage.getItem("user-info");

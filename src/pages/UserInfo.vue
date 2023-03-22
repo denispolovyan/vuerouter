@@ -1,5 +1,10 @@
 <template>
-  <div class="user-info">
+  <div
+    class="user-info"
+    :class="{
+      blackThemeCard: !$store.getters.getColorTheme,
+    }"
+  >
     <div class="user-info__body" v-if="userInfo">
       <div class="user-info__row">
         <div class="user-info__name">{{ userInfo.name }}</div>
@@ -15,10 +20,10 @@
         <div class="user-info__email">{{ userInfo.email }}</div>
       </div>
       <div class="user-info__row" v-if="!premiumState">
-        <p style="margin-bottom: 10px">Status: no premium</p>
+        <p style="margin-bottom: 10px">Status: basic</p>
         <button
           :class="{
-            blackTheme: !$store.getters.getColorTheme,
+            blackThemeButton: !$store.getters.getColorTheme,
           }"
           class="user-info__premium user-info__button"
           @click.prevent="switchToPremiumPaymentForm"
@@ -32,7 +37,7 @@
         <button
           class="user-info-delete user-info__button"
           :class="{
-            blackTheme: !$store.getters.getColorTheme,
+            blackThemeButton: !$store.getters.getColorTheme,
           }"
           @click.prevent="deleteUser"
         >
@@ -122,7 +127,18 @@ export default {
   }
 }
 /* black theme */
-.blackTheme {
+.blackThemeButton {
+  border: 1px solid #d0d0c4;
   background-color: #f6f6f3;
+  color: #000;
+}
+.blackThemeButton:hover {
+  border: 1px solid #000;
+  background-color: #f6f6f3;
+  color: #000;
+}
+.blackThemeCard {
+  background-color: #e0e0cd;
+  color: #000;
 }
 </style>

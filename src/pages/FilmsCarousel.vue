@@ -130,7 +130,8 @@ export default {
 }
 @media (max-width: 600px) {
   .films-carousel__body {
-    margin: 20px auto;
+      padding: 20px 0px;
+
   }
 }
 
