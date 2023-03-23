@@ -9,7 +9,7 @@
       <div class="films__container">
         <div
           class="film"
-          v-for="film in films"
+          v-for="film in $store.getters.getFilteredFilms"
           :key="film"
           @mouseover="selectFilm(film)"
         >
@@ -45,6 +45,7 @@ export default {
     return {
       selectedFilm: null,
       registrated: false,
+      films: [],
     };
   },
   methods: {
@@ -130,8 +131,7 @@ export default {
 }
 @media (max-width: 600px) {
   .films-carousel__body {
-      padding: 20px 0px;
-
+    padding: 20px 0px;
   }
 }
 

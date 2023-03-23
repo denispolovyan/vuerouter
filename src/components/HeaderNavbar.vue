@@ -8,6 +8,11 @@
     <div class="header-navbar__container">
       <div class="header-navbar__logo" @click="setFilmsPage">vuerouter</div>
       <div class="header-navbar__navbar">
+        <div class="header-navbar__item" v-if="$route.path == '/films'">
+          <div class="header-navbar__filter">
+            <input type="text" maxlength="20" v-model="filter" />
+          </div>
+        </div>
         <div class="header-navbar__item">
           <div class="form-check form-switch">
             <input
@@ -38,12 +43,15 @@
 
 <script>
 import { reactions } from "@/data/reactions";
+import { films } from "@/data/films";
 
 export default {
   data: () => {
     return {
       signedIn: false,
       checked: false,
+      filter: "",
+      films: [],
     };
   },
   methods: {
@@ -119,6 +127,7 @@ export default {
         });
       }
     }
+    this.$store.commit("setFilms", films);
   },
 
   watch: {
@@ -126,11 +135,14 @@ export default {
       const signedIn = localStorage.getItem("user-info");
       this.signedIn = signedIn ? true : false;
     },
+    filter() {
+      this.$store.commit("setFilteredFilms", this.filter);
+    },
   },
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500;600;700&display=swap");
 
 .header-navbar {
@@ -152,7 +164,7 @@ export default {
 }
 .header-navbar__navbar {
   display: flex;
-  gap: 25px;
+  gap: 10px;
 }
 .header-navbar__item {
   cursor: pointer;
@@ -167,6 +179,16 @@ export default {
 .header-navbar__premium {
   height: 20px;
   width: 20px;
+}
+
+/* filter */
+.header-navbar__filter {
+  input {
+    width: 90px;
+    height: 20px;
+    border-radius: 2px;
+    padding: 0px 3px;
+  }
 }
 
 /* black__theme */

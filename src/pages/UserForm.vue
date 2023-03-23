@@ -60,6 +60,7 @@
               @blur="v$.form.email.$touch"
               @focus="v$.form.email.$reset"
               autocomplete="off"
+              maxlength="35"
               v-model="form.email"
             />
             <div class="errorMsg" v-if="v$.form.email.$error">
@@ -67,8 +68,7 @@
             </div>
           </div>
           <!-- password  -->
-          <div class="form__body passwords">
-            <div class="form__body_password">
+            <div class="form__body">
               <label class="form__password form__label">Password</label>
               <input
                 :class="{
@@ -86,7 +86,7 @@
                 Min length is 8 symbols.
               </div>
             </div>
-            <div class="form__body_password">
+            <div class="form__body">
               <label class="form__passwordConfirmation form__label"
                 >Confirm the password</label
               >
@@ -106,10 +106,8 @@
                 Passwords don`t match
               </div>
             </div>
-          </div>
           <!-- sex  -->
-          <div class="form__body">
-            <label class="form__sex form__label">Sex</label>
+          <div class="form__body form__body_select">
             <select
               :class="{
                 blackThemeButton: !$store.getters.getColorTheme,
@@ -265,7 +263,6 @@ export default {
 
 <style scoped>
 .errorMsg {
-  margin-top: 5px;
   color: red;
 }
 .errorMsgCheckbox {
@@ -285,6 +282,7 @@ export default {
   padding: 20px;
 }
 .form__body {
+	height: 55px;
   display: block;
   max-width: 400px;
 }
@@ -295,6 +293,9 @@ export default {
   padding: 0px 5px;
   border: 1px solid #79787e;
 }
+.form__body_password{
+	height: 40px;
+}
 .passwords {
   gap: 10px;
   display: flex;
@@ -304,7 +305,9 @@ export default {
   display: block;
   margin-bottom: 4px;
 }
-
+.form__body_select{
+	height: 30px;
+}
 .form__select {
   border: 1px solid #000;
 }
@@ -343,7 +346,7 @@ export default {
   color: #000;
 }
 .blackThemeButton:hover {
-	transition-duration: 0.5s;
+  transition-duration: 0.5s;
   border: 1px solid #000;
   background-color: #f6f6f3;
   color: #000;

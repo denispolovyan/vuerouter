@@ -7,6 +7,8 @@ export default createStore({
       premiumAccount: false,
       reactions: [],
       reviewOnFilms: [],
+      films: [],
+      filteredFilms: [],
     };
   },
   getters: {
@@ -24,6 +26,9 @@ export default createStore({
     },
     getReviewOnFilms(state) {
       return state.reviewOnFilms;
+    },
+    getFilteredFilms(state) {
+      return state.filteredFilms;
     },
   },
   mutations: {
@@ -49,6 +54,13 @@ export default createStore({
     },
     deleteAllReviewsOnFilms(state) {
       state.reviewOnFilms = [];
+    },
+    setFilms(state, films) {
+      state.films = films;
+		state.filteredFilms = films;
+    },
+    setFilteredFilms(state, filter) {
+      state.filteredFilms = state.films.filter((t) => t.name.includes(filter));
     },
   },
   actions: {},
