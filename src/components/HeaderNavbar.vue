@@ -99,6 +99,7 @@ export default {
     if (signedIn) {
       signedIn = JSON.parse(signedIn);
       this.signedIn = true;
+      this.$store.commit("setUserInfo", signedIn);
 
       // check if premium exists
       if (signedIn.premium === false || signedIn.premium === true) {
@@ -127,13 +128,18 @@ export default {
         });
       }
     }
+    // set and filter films
     this.$store.commit("setFilms", films);
+    this.$store.commit("setFilteredFilms", this.filter);
   },
 
   watch: {
     "$route.path"() {
       const signedIn = localStorage.getItem("user-info");
       this.signedIn = signedIn ? true : false;
+      this.$store.commit("setReactions", reactions);
+      this.$store.commit("setFilteredFilms", this.filter);
+      this.filter = "";
     },
     filter() {
       this.$store.commit("setFilteredFilms", this.filter);

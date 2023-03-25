@@ -3,6 +3,7 @@ import { createStore } from "vuex";
 export default createStore({
   state() {
     return {
+      userInfo: [],
       whiteTheme: true,
       premiumAccount: false,
       reactions: [],
@@ -30,6 +31,9 @@ export default createStore({
     getFilteredFilms(state) {
       return state.filteredFilms;
     },
+    getUserAge(state) {
+      return state.userInfo.age;
+    },
   },
   mutations: {
     changeColorTheme(state) {
@@ -55,13 +59,23 @@ export default createStore({
     deleteAllReviewsOnFilms(state) {
       state.reviewOnFilms = [];
     },
+    deleteUserInfo(state) {
+      state.userInfo = [];
+    },
     setFilms(state, films) {
       state.films = films;
-		state.filteredFilms = films;
+      state.filteredFilms = films;
     },
     setFilteredFilms(state, filter) {
-      state.filteredFilms = state.films.filter((t) => t.name.includes(filter));
+      let includeFilteredFilms = state.films.filter((t) =>
+        t.name.includes(filter)
+      );
+      state.filteredFilms = state.userInfo.age
+        ? includeFilteredFilms.filter((t) => t.age <= state.userInfo.age)
+        : includeFilteredFilms;
+    },
+    setUserInfo(state, userInfo) {
+      state.userInfo = userInfo;
     },
   },
-  actions: {},
 });

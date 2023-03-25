@@ -1,6 +1,7 @@
 export const films = [
   {
     id: 1,
+    age: 18,
     premium: true,
     name: "Breaking Bad",
     img: "https://img2.goodfon.ru/wallpaper/nbig/b/a5/vo-vse-tyazhkie-breaking-bad-3918.jpg",
@@ -9,6 +10,7 @@ export const films = [
   },
   {
     id: 2,
+    age: 14,
     premium: false,
     name: "Shameless",
     img: "https://img4.goodfon.ru/wallpaper/nbig/8/e2/cameron-monaghan-ethan-cutkosky-shameless-emmy-rossum-bess-1.jpg",
@@ -17,6 +19,7 @@ export const films = [
   },
   {
     id: 3,
+    age: 14,
     premium: true,
     name: "Paper House",
     img: "https://img5.goodfon.com/wallpaper/nbig/7/75/bumazhnyi-dom-la-casa-de-papel-money-heist-tv-series-serial.jpg",
@@ -26,6 +29,7 @@ export const films = [
   },
   {
     id: 4,
+    age: 16,
     premium: true,
     name: "Better Call Saul",
     img: "https://www.cheatsheet.com/wp-content/uploads/2020/04/better-call-saul1.jpg",
@@ -35,6 +39,7 @@ export const films = [
   },
   {
     id: 5,
+    age: 18,
     premium: false,
     name: "The Bridge",
     img: "https://topic.imgix.net/usq/ba0e4905-4ec9-4856-982a-f8d48d3c660d/6f5981b8-d008-4fe7-9798-94e840e69274.jpeg?auto=compress,format&cs=srgb&h=781&_=0c8c771cf95a53a6108f640a1307dad6&bg=%23ffffff",
@@ -44,11 +49,42 @@ export const films = [
   },
   {
     id: 6,
+    age: 14,
     premium: false,
     name: "The end of the fun***in world",
     img: "https://flxt.tmsimg.com/assets/p14695238_b_h8_aa.jpg",
 
     description:
       "A budding teen psychopath and a rebel hungry for adventure embark on a star-crossed road trip in this darkly comic series based on a graphic novel.",
+  },
+  {
+    id: 7,
+    age: 12,
+    premium: false,
+    name: "Fargo",
+    img: "https://images-na.ssl-images-amazon.com/images/W/IMAGERENDERING_521856-T1/images/S/pv-target-images/7cac9754ca4ca052b72a0cc7a1d067f3aa829b40f151270ccc3463501d145c95._SX1080_.jpg",
+
+    description:
+      "A drifter brings trouble to small-town Minnesota in this adaptation of the 1996 Coen brothers film..",
+  },
+  {
+    id: 8,
+    age: 14,
+    premium: false,
+    name: "Sex education",
+    img: "https://itc.ua/wp-content/uploads/2020/01/sex-education.jpg",
+
+    description:
+      "Thanks to his mother, who works as a sex therapist, insecure Otis knows the answers to all his questions about sex. Therefore, the rebel Maeve offers him to open a sex therapy clinic.",
+  },
+  {
+    id: 9,
+    age: 14,
+    premium: false,
+    name: "Wayne",
+    img: "https://images-na.ssl-images-amazon.com/images/W/IMAGERENDERING_521856-T1/images/S/pv-target-images/07c529fa2f2f2d7bc8a289cb12291188199f4f9e13048ac57c0b24483f3ca7a0._RI_.jpg",
+
+    description:
+      "Wayne, a 16 year-old Dirty Harry with a heart of gold, sets out on a small two stroke road bike from Boston to Florida with his new friend Del to get back their wicked-hot 79' Trans-Am that was stolen from his father before he died.",
   },
 ];

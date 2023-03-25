@@ -105,6 +105,8 @@ export default {
         this.$store.commit("deleteAllReviewsOnFilms");
         localStorage.removeItem("user-info");
         localStorage.removeItem("films-review");
+        this.$store.commit("deleteUserInfo");
+        this.$store.commit("setFilteredFilms", this.filter);
         this.$router.push("/films");
       }
     },

@@ -68,44 +68,63 @@
             </div>
           </div>
           <!-- password  -->
-            <div class="form__body">
-              <label class="form__password form__label">Password</label>
-              <input
-                :class="{
-                  blackThemeButton: !$store.getters.getColorTheme,
-                }"
-                @click="resetErrors()"
-                @blur="v$.form.password.$touch"
-                @focus="v$.form.password.$reset"
-                maxlength="20"
-                autocomplete="off"
-                v-model="form.password"
-                type="password"
-              />
-              <div class="errorMsg" v-if="v$.form.password.$error">
-                Min length is 8 symbols.
-              </div>
+          <div class="form__body">
+            <label class="form__password form__label">Password</label>
+            <input
+              :class="{
+                blackThemeButton: !$store.getters.getColorTheme,
+              }"
+              @click="resetErrors()"
+              @blur="v$.form.password.$touch"
+              @focus="v$.form.password.$reset"
+              maxlength="20"
+              autocomplete="off"
+              v-model="form.password"
+              type="password"
+            />
+            <div class="errorMsg" v-if="v$.form.password.$error">
+              Min length is 8 symbols.
             </div>
-            <div class="form__body">
-              <label class="form__passwordConfirmation form__label"
-                >Confirm the password</label
-              >
-              <input
-                :class="{
-                  blackThemeButton: !$store.getters.getColorTheme,
-                }"
-                @click="resetErrors()"
-                @blur.stop="v$.form.passwordConfirmation.$touch"
-                @focus.stop="v$.form.passwordConfirmation.$reset"
-                maxlength="20"
-                autocomplete="off"
-                v-model="form.passwordConfirmation"
-                type="password"
-              />
-              <div class="errorMsg" v-if="v$.form.passwordConfirmation.$error">
-                Passwords don`t match
-              </div>
+          </div>
+          <div class="form__body">
+            <label class="form__passwordConfirmation form__label"
+              >Confirm the password</label
+            >
+            <input
+              :class="{
+                blackThemeButton: !$store.getters.getColorTheme,
+              }"
+              @click="resetErrors()"
+              @blur.stop="v$.form.passwordConfirmation.$touch"
+              @focus.stop="v$.form.passwordConfirmation.$reset"
+              maxlength="20"
+              autocomplete="off"
+              v-model="form.passwordConfirmation"
+              type="password"
+            />
+            <div class="errorMsg" v-if="v$.form.passwordConfirmation.$error">
+              Passwords don`t match
             </div>
+          </div>
+          <!-- age  -->
+          <div class="form__body">
+            <label class="form__passwordConfirmation form__label">Age</label>
+            <input
+              :class="{
+                blackThemeButton: !$store.getters.getColorTheme,
+              }"
+              @click="resetErrors()"
+              @blur.stop="v$.form.age.$touch"
+              @focus.stop="v$.form.age.$reset"
+              maxlength="2"
+              autocomplete="off"
+              v-model="form.age"
+              type="text"
+            />
+            <div class="errorMsg" v-if="v$.form.age.$error">
+              Age isn`t correcct
+            </div>
+          </div>
           <!-- sex  -->
           <div class="form__body form__body_select">
             <select
@@ -190,6 +209,7 @@ export default {
         phone: "",
         password: "",
         passwordConfirmation: "",
+        age: "",
         sex: "male",
         checkbox: "",
       },
@@ -203,8 +223,9 @@ export default {
         return;
       } else {
         localStorage.setItem("user-info", JSON.stringify(this.form));
-        this.resetForm();
+        this.$store.commit("setUserInfo", Object.assign({}, this.form));
         this.$router.push("/user");
+        this.resetForm();
       }
     },
     resetForm() {
@@ -248,6 +269,15 @@ export default {
           passwordConfirmationConfirm: sameAs(this.form.password),
           required,
         },
+        age: {
+          required,
+          ageNumberValidator(value) {
+            return !isNaN(value);
+          },
+          ageCorrectValidator(value) {
+            return value > 0;
+          },
+        },
         sex: { required },
         checkbox: {
           checkboxValidator(value) {
@@ -282,7 +312,7 @@ export default {
   padding: 20px;
 }
 .form__body {
-	height: 55px;
+  height: 55px;
   display: block;
   max-width: 400px;
 }
@@ -293,8 +323,8 @@ export default {
   padding: 0px 5px;
   border: 1px solid #79787e;
 }
-.form__body_password{
-	height: 40px;
+.form__body_password {
+  height: 40px;
 }
 .passwords {
   gap: 10px;
@@ -305,8 +335,8 @@ export default {
   display: block;
   margin-bottom: 4px;
 }
-.form__body_select{
-	height: 30px;
+.form__body_select {
+  height: 30px;
 }
 .form__select {
   border: 1px solid #000;
