@@ -8,7 +8,7 @@
     <div class="header-navbar__container">
       <div class="header-navbar__logo" @click="setFilmsPage">vuerouter</div>
       <div class="header-navbar__navbar">
-        <div class="header-navbar__item" v-if="$route.path == '/films'">
+        <div class="header-navbar__item" v-if="$route.path == '/films' || $route.path == '/no-films' ">
           <div class="header-navbar__filter">
             <input type="text" maxlength="20" v-model="filter" />
           </div>
@@ -131,6 +131,8 @@ export default {
     // set and filter films
     this.$store.commit("setFilms", films);
     this.$store.commit("setFilteredFilms", this.filter);
+
+    //  no films page
   },
 
   watch: {
@@ -139,10 +141,13 @@ export default {
       this.signedIn = signedIn ? true : false;
       this.$store.commit("setReactions", reactions);
       this.$store.commit("setFilteredFilms", this.filter);
-      this.filter = "";
     },
     filter() {
+		this.$router.push("/films")
       this.$store.commit("setFilteredFilms", this.filter);
+      !this.$store.getters.getFilteredFilms.length
+        ? this.$router.push("/no-films")
+        : null;
     },
   },
 };

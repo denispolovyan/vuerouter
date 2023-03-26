@@ -9,6 +9,7 @@ import UserInfo from "../pages/UserInfo.vue";
 import PaymentForm from "../pages/PaymentForm.vue";
 import NoRegistration from "../pages/NoRegistration.vue";
 import NoPremium from "../pages/NoPremium.vue";
+import NoFilms from "../pages/NoFilms.vue";
 
 export default createRouter({
   history: createWebHashHistory(),
@@ -21,6 +22,7 @@ export default createRouter({
     { path: "/user", name: "user", component: UserInfo },
     { path: "/user/premium", name: "premium", component: PaymentForm },
     { path: "/no-premium", name: "premiumWarning", component: NoPremium },
+    { path: "/no-films", name: "noFilmsWarning", component: NoFilms },
 
     {
       path: "/no-registration",
@@ -45,6 +47,7 @@ export default createRouter({
         { path: "/user-auth", name: "userAuthefication", component: UserForm },
         { path: "/user", name: "user", component: UserInfo },
         { path: "/user/premium", name: "premium", component: PaymentForm },
+        { path: "/no-films", name: "noFilmsWarning", component: NoFilms },
       ],
     },
   ],

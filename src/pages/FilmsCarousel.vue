@@ -38,8 +38,6 @@
 </template>
 
 <script>
-import { films } from "@/data/films";
-
 export default {
   data: () => {
     return {
@@ -69,7 +67,10 @@ export default {
     },
   },
   created() {
-    this.films = films;
+    // check films array
+    !this.$store.getters.getFilteredFilms.length
+      ? this.$router.push("/no-films")
+      : null;
   },
 };
 </script>
